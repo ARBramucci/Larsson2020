@@ -1,4 +1,6 @@
-This is a custom script to process Illumina MiSeq amplicon data directly modified from the workflows published on the official [DADA2 website](https://benjjneb.github.io/dada2/index.html) The script includes some modifications to fulfill specific needs and has proven to work well for
+This is a custom script to process Illumina MiSeq amplicon data directly modified from the workflows published on the official 
+[DADA2 website](https://benjjneb.github.io/dada2/index.html)
+The script includes some modifications to fulfill specific needs and has proven to work well for
 
 This is the R code used for processing the paired end Illumina reads for the Larsson et al 2020 microbial consortia comparison. Raw paired end reads were obtained from AGRF and were run through the dada2 pipeline in order to check the read quality, remove v1-v3 forward and reverse bacterial primers from the reads using cutadapt, and truncate the reads to eliminate low quality terminal bases. For this work reads were truncated at (R1=255 and R2=250). Error rates were learned based on 1e8 bases and max consist =20. Reads were then dereplicated and merged using pseudo pooling. The collapse no mismatch step was run on the reads in order to collapse two identical merged reads without internal mismatches, but having different terminal lengths into one ASV, combining their abundances and retaining the most abundant of the two collapsed reads.
 
